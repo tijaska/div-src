@@ -1,16 +1,5 @@
-#summary div-src-1.0 released
+#div-src v1.1 released.
 
-= Introduction =
+= Tighter error checking =
 
-div-src-1.0 fixes a bug in div-src-0.9; if DIV_SRC.resolve() is invoked with no options and no arguments in div-src-0.9 then the code fails.  This has been fixed in div-src-1.0.
-
-The new release also add a new optional parameter, {loading : "string"}
-This allows the caller to specify a string of HTML that will be displayed in all DIV_SRC tags while their new content is being fetched from the web server.  If the load fails for any reason then this message remains displayed.  It may contain a hyperlink that the browser user can click on to recover from the problem, as described in http://localhost/dom2json/DIV_SRC/problems.html
-
-= New Demo =
-
-A new demo page at http://turton.co.za/DIV_SRC/demo/grind.html shows a mock-up of a news feed website, roughly similar in layout to many mainline news feed sites.  Calculations given on this page show that a busy news feed web site of similar composition to the demo could save 90% of its bandwidth by using DIV_SRC to segment its content, thereby enabling the many caches spread around the Internet to do their job.
-
-= New Problems Addressed =
-
-The DIV_SRC problem page at http://localhost/dom2json/DIV_SRC/problems.html discusses what to do about browsers that don't implement JavaScript, or maybe do, but don't implement AJAX.  These old lame duck browsers were dying out, but mobile devices have introduced a whole new generation of memory-constrained platforms that can't run full-function browsers.  the problem page describes ways in which the web page author can determine whether the user's browser can do JavaScript and/or AJAX, and also ways in which these shortcomings can be overcome.
+The JavaScript code is enhanced with a check to see if the user has opened an HTML page from a file system rather than from a web server.  AJAX can't work against a bald file system, causing div-src to fail.  A new check reports this problem if found, and exits.
