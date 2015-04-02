@@ -1,0 +1,5 @@
+#div-src v1.1 released.
+
+# Tighter error checking #
+
+The JavaScript code is enhanced with a check to see if the user has opened an HTML page from a file system rather than from a web server.  AJAX can't work against a bald file system, causing div-src to fail.  A new check reports this problem if found, and exits.

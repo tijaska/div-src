@@ -1,0 +1,8 @@
+# The div-src Tool #
+div-src enables the use of `<div src="uri">` in HTML pages.  This allows for more granularity in web page development, and better utilization of browser caches and caching proxy servers.  div-src is a simple tool that enables this facility for `<div>` and many other HTML tags.  Participating pages include the DIV\_SRC.js JavaScript file, and invoke it.  It scans the page's DOM looking for `<div src="uri">` and similar constructs, and uses AJAX calls to fetch and load the content referenced by these tags, optionally scanning the fetched content for further `<div src="uri">` and fetching that content as well.  The content is injected into the innerHTML of the tag that references it.
+
+A mock-up of a news-feed (included in the package) shows that bandwidth savings of 90% can be achieved by content providers through the use of div-src.
+
+div-src has been enhanced in version 2 to allow for bimodal operation, where a single set of content files can be displayed as one large composite page in browsers that implement AJAX (typically on desktops and laptops); or exactly the same content can be displayed as a set of smaller, cross-linked pages in browsers that don't implement AJAX (typically on mobiles).  Even if the browser doesn't do JavaScript, the content will still be completely accessible to its user.  No server-side logic is required to distinguish between these various cases; div-src has got enough smarts to direct the process from inside the user's browser, and fails safe if it can't run at all.
+
+See writeup and demo at http://turton.co.za/DIV_SRC/, or download the full package from here and run it under your own web server.
